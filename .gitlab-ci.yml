@@ -1,7 +1,6 @@
-image: alpine:latest
+image: node:v18.18.0
 
 pages:
-  image: node:v18.18.0
   stage: deploy
   script:
   - npm cache clear --force
@@ -13,6 +12,8 @@ pages:
   artifacts:
     paths:
     - public
+  tags:
+  - Pages
   only:
   - main
 
