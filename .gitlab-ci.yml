@@ -1,6 +1,7 @@
-image: node:v18.18.0
+image: alpine:latest
 
 pages:
+  image: node:v18.18.0
   stage: deploy
   script:
   - npm cache clear --force
