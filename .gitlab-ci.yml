@@ -1,14 +1,31 @@
-image: alpine:latest
+image: node:v18.18.0
 
 pages:
   stage: deploy
   script:
-    - echo "Deploying..."
+  - npm cache clear --force
+  - npm install
+  - unset CI
+  - npm run build
+  - rm -rf public
+  - mv build public
   artifacts:
     paths:
-      - public
-  tags:
-    - Pages
+    - public
   only:
-    - main
+  - main
+
+# image: alpine:latest
+
+# pages:
+#   stage: deploy
+#   script:
+#     - echo "Deploying..."
+#   artifacts:
+#     paths:
+#       - public
+#   tags:
+#     - Pages
+#   only:
+#     - main
 
