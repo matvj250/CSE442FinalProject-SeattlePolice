@@ -58,8 +58,8 @@ a {
       linear-gradient(rgba(15, 35, 63, 0.75), rgba(15, 35, 63, 0.75)),
       url("img/seattle.jpg");
     background-size: cover;
-    padding-top: 20vh;
-    padding-bottom: 20vh;
+    padding-top: 15vh;
+    padding-bottom: 15vh;
   }
 
   .page-title {
