@@ -6,35 +6,40 @@
 }
 
 body {
-  /* padding: 64px 32px; */
+  font-family: "DM Sans", "Avenir Next", "Helvetica Neue", Arial, sans-serif;
   color: black;
-  font: 18px/1.5 "DM Sans", "Avenir Next", "Helvetica Neue", Arial, sans-serif;
 }
 
 h1, h2, h3, h4 {
-  font-family: "Aleo", sans-serif;
+  font-family: "Aleo", 'Times New Roman', Times, serif;
   font-weight: bold;
+  color: #0f233f;
 }
 
-h1 {
+h1, a {
   color: white;
 }
 
-.header {
-  margin: 0;
-  padding: 0;
+hr {
+  border-color: #73ad4b;
+  background-color: #73ad4b;
+  height: 2px;
+  opacity: 1;
 }
 
 a {
   text-decoration: none;
-  color: white;
+}
+
+.header {
+  margin-bottom: 1rem;
+  padding: 0;
 }
 
 .footer {
+  color: white;
   background-color: #0f233f;
   border-top: 0.25rem solid #73ad4b;
-  padding-left: 1rem;
-  padding-right: 1rem;
 }
 
 .content {
@@ -52,6 +57,36 @@ a {
   padding: 1.5rem 1rem;
 }
 
+.sidenav {
+  background-color: rgb(51, 51, 51, 0.35);
+  margin-top: 3rem;
+}
+
+.sidenav h2 {
+  font-size: 1.5rem;
+  text-decoration: underline;
+}
+
+.sidenav a {
+  color: black;
+}
+
+.sidenav a:hover {
+  text-decoration: underline;
+}
+
+.mb-caption {
+  margin-bottom: 2rem;
+}
+
+#sources li {
+  margin-left: 2rem;
+}
+
+#police-office, #police-lights {
+  width: 100%;
+}
+
 @media (min-width: 768px) {
   .title-box {
     background:
@@ -66,13 +101,47 @@ a {
     background-color: transparent;
     text-align: center;
   }
+  
+  .text-content {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
 }
 
+@media (min-width: 992px) {
+  .header {
+    margin-bottom: 1.5rem;
+  }
+
+  #authors {
+    margin-bottom: 1.5rem;
+  }
+
+  .text-content{
+    padding-left: 6vw;
+    padding-right: 6vw;
+  }
+  
+  #body-text {
+    padding-right: 2rem;
+  }
+}
 
 @media (min-width: 1200px) {
   .title-box {
     background:
       linear-gradient(rgba(15, 35, 63, 0.75), rgba(15, 35, 63, 0.75)),
       url("img/seattle-lg.jpg");
+  }
+}
+
+@media (min-width: 1400px) { 
+  .text-content {
+    padding-left: 12vw;
+    padding-right: 12vw;
+  }
+
+  #police-office, #police-lights {
+    width: 80%;
   }
 }
