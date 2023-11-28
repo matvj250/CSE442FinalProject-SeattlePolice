@@ -7,6 +7,7 @@
   <!-- Uncomment if you want your page to NOT be indexed by search engines: -->
   <!-- <meta name="robots" content="none"> -->
   <link href="https://fonts.googleapis.com/css2?family=Aleo:wght@400;700&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,700;1,9..40,400;1,9..40,700" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@observablehq/inspector@5/dist/inspector.css">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
   <link rel="stylesheet" href="style.css" />
   <title>What Has Caused Seattle Police Response Times to Change over Time?</title>
@@ -54,7 +55,7 @@
 
         <div id="part-1" class="row">
           <div class="col-lg-12">
-            <h2>Well, Well, Well, Look What the Cat Dragged In</h2>
+            <h2>General Trends in Seattle PD Response Times</h2>
             <hr />
 
             <p>
@@ -64,54 +65,82 @@
               At the very end, or rather, in this short paragraph, we might explain the basic interactions associated with this visualization, should they exist. If the visualization is indeed static, then we might consider highlighting key aspects of the data based on the visualization.
             </p>
           </div>
-          <div class="col-lg-6">
-            <!-- Small viz here -->
+          <div class="col-md-6 col-xl-5">
+            <div id="observablehq-part1AvgBar-b63b3261"></div>
           </div>
-          <div class="col-lg-6">
+          <div class="col-md-6 col-xl-7">
             <p>
               Alternatively, if we fit a small visualization on the side here, we can explain it in this column beside it on the right. This would make it so that the analysis/use text is easily accessible to a user to this first visualization.   
+            </p>
+            <p>
+              Main observationL clearly, Seattle PD response times have steadily increased over time.
             </p>
           </div>
           <div class="col-lg-12">
             <p>
               We wrap up the first visualization pretty quickly, explaining its relevance in providing a rough overview of average Seattle police response times and their change over time. 
             </p>
+            <div id="observablehq-part1MultiBar-b63b3261"></div>
             <p>
               As a general note, this part of the article would be a good place for most of our static visualizations. And as yet another note, any interactive visualizations we create should have text describing how to interact with them somewhere in the article or near the area of the visualization.
+            </p>
+            <p>
+              Main observation: increases in response times over the years are occurring across all call priorities, rather than for specific priority calls.
             </p>
           </div>
         </div>
 
         <div id="part-2" class="row">
-          <h2>Interactivity, And Beyond</h2>
+          <h2>On the Impact of Select Factors on Citywide Police Response Times</h2>
           <hr />
 
           <p>
             Survey says: we will add a graph here that allows the user to view an interactive line graph whose axes can change based on user selection. More details to come as we develop the interactive components, I'm sure. The purpose of this section is to view average police response times while comparing them to general statistics about Seattle, irrespective of neighborhood, beat, or other geographic marker (or so I'm led to believe).
           </p>
+          <div id="observablehq-viewof-group-b63b3261"></div>
+          <div id="observablehq-part2-b63b3261"></div>
           <p>
             For this part, I feel having the visualization sit on its own, rather than in a column layout, makes more sense considering the increased level of interactivity. The focus of this visualization will continue to be about Seattle response times, but now examining potential factors in (slightly) greater detail. We don't want to show all of our cards on table before we've prepped the real meat and potatoes, though--that would ruin the surprise for our audience. 
           </p>
-          <h3>
-            Placeholder text for a graph to be inserted
-          </h3>
           <p>
             As usual, we might make a brief comment about the factors we examined in this particular visualization in this subsequent paragraph. Oh, the joys of creating filler text. I should emphasize that we still prompt the audience to make their own observations - we are simply pointing out some which we found somewhat notable.
+          </p>
+          <p>
+            Main observation: This graph allows us to look at possible citywide influences on increasing response time. Unsurprisingly, both budget and employment have a strong negative correlation with response times, population has a decent positive correlation, and crime rate has no real correlation. We would somehow tie this into a transition into the next segment, which relates to population demographics. 
           </p>
         </div>
 
         <div id="part-3" class="row">
-          <h2>On the Chopping Neighborhood Block</h2>
+          <h2>The Finer Things in Life, Like Neighborhoods</h2>
           <hr />
           <p>
             As it stands, this section is currently focused on examining <em>specific</em> details about neighborhoods which might correlate to police response times. As has been the case with this article, this part aims to move to a more granular level of analysis of the topic.
           </p>
           <p>
-            For now, here's a heatmap of neighborhoods, racial groups, and the percentage of the population that those groups make up of those neighborhoods.
+            Opening text: These changes in police response times aren't equal across all parts of Seattle. Worthy of our time to look at specific beats, or subsets of police areas, and see which are disproportionately affected or "safe" from this trend.
           </p>
-          <h3>Placeholder text for a graph</h3>
+          <p>
+            First, here's a heatmap of neighborhoods, racial groups, and the percentage of the population that those groups make up of those neighborhoods.
+          </p>
+          <div id="observablehq-viewof-group2-b63b3261"></div>
+          <div id="observablehq-heatmap-b63b3261"></div>
           <p>
             This heatmap shows the distribution of racial identities across Seattle's neighborhoods. While this visualization alone is insufficient in drawing connections to police response times, we would necessarily include other visualizations somewhere (probably somewhere after this) where we examine neighborhood/beat specific response times. Particularly, this might be the map in the next part (part 4), but that depends on what visualizations we intend to keep or add to this article. 
+          </p>
+          <div id="observablehq-viewof-year-b63b3261"></div>
+          <div id="observablehq-part3-b63b3261"></div>
+          <p>
+            Look at B1, B2, B3 to ascertain why they remained among the worst.
+            <br />
+            Look at U1, D3. What caused their 2022 increase?
+            <br />
+            Look at M3. Why did it stay low?
+            <br />
+            Look at W3, M1. Where did they come from in their decrease?
+            <br />
+            Look at E2. Why did it leave lowest?
+            <br />
+            A lot happened between 2018 and 2022. Might be due to the citywide factors we saw earlier.
           </p>
         </div>
 
@@ -121,9 +150,16 @@
           <p>
             The crowning jewel, so splendidly does it shine: a map of beats (or neighborhoods) and average response times, filtered by priority. We would need to remind the audience that the call data we used to produce the response time calculates are limited to those with priority level 1-4.
           </p>
-          <h3>Placeholder text for visualization</h3>
+          <div class="graph"> 
+            <div id="observablehq-viewof-yearsmap-b63b3261"></div>
+            <div id="observablehq-viewof-priority-b63b3261" class="bottom-margin-1"></div>
+            <div id="observablehq-map-b63b3261"></div>
+          </div>
           <p>
             A final remark about the map, perhaps.
+          </p>
+          <p>
+            Main observation: the general trend shows that police response times, when considering all priority calls, decreased slightly when going from the range 2006-2010 to 2011-2015, but then increased from 2011-2015 to 2016-2020. We would need to carefully remind the audience that we are examining year ranges here, and not individual years, as in Part 1.
           </p>
         </div>
 
@@ -152,6 +188,9 @@
             <li>
               I hope you've heard of this one too!
             </li>
+            <li>
+              Naturally, these are to be updated in the final draft.
+            </li>
           </ul>
           <h3>References</h3>
           <ul>
@@ -165,12 +204,12 @@
         <div class="sidenav px-3 pt-3 pb-2">
           <h2>Quick Navigation</h2>
           <ul>
-            <li><a href="#intro">Link 1</a></li>
-            <li><a href="#part-1">Link 2</a></li>
-            <li><a href="#part-2">Link 3</a></li>
-            <li><a href="#part-3">Link 4</a></li>
-            <li><a href="#part-4">Link 5</a></li>
-            <li><a href="#conclusion-heading">Link 6</a></li>
+            <li><a href="#intro">Intro</a></li>
+            <li><a href="#part-1">Part 1</a></li>
+            <li><a href="#part-2">Part 2</a></li>
+            <li><a href="#part-3">Part 3</a></li>
+            <li><a href="#part-4">Part 4</a></li>
+            <li><a href="#conclusion-heading">Conclusion</a></li>
             <li><a href="#sources">Attributions</a></li>
           </ul>
         </div>
@@ -192,6 +231,36 @@
     </footer>
   </div>
 
+
+<!-- <div id="observablehq-viewof-group-b63b3261"></div>
+<div id="observablehq-part2-b63b3261"></div> -->
+<!-- <div id="observablehq-viewof-year-b63b3261"></div>
+<div id="observablehq-part3-b63b3261"></div> -->
+<!-- <div id="observablehq-viewof-group2-b63b3261"></div>
+<div id="observablehq-heatmap-b63b3261"></div> -->
+<!-- <div id="observablehq-part1AvgBar-b63b3261"></div> -->
+<!-- <div id="observablehq-part1MultiBar-b63b3261"></div> -->
+<!-- <div id="observablehq-viewof-yearsmap-b63b3261"></div>
+<div id="observablehq-viewof-priority-b63b3261"></div>
+<div id="observablehq-map-b63b3261"></div> -->
+
+  <script type="module">
+    import {Runtime, Inspector} from "https://cdn.jsdelivr.net/npm/@observablehq/runtime@5/dist/runtime.js";
+    import define from "https://api.observablehq.com/d/11c4b6df0988a406@756.js?v=4";
+    new Runtime().module(define, name => {
+      if (name === "viewof group") return new Inspector(document.querySelector("#observablehq-viewof-group-b63b3261"));
+      if (name === "part2") return new Inspector(document.querySelector("#observablehq-part2-b63b3261"));
+      if (name === "viewof year") return new Inspector(document.querySelector("#observablehq-viewof-year-b63b3261"));
+      if (name === "part3") return new Inspector(document.querySelector("#observablehq-part3-b63b3261"));
+      if (name === "viewof group2") return new Inspector(document.querySelector("#observablehq-viewof-group2-b63b3261"));
+      if (name === "heatmap") return new Inspector(document.querySelector("#observablehq-heatmap-b63b3261"));
+      if (name === "part1AvgBar") return new Inspector(document.querySelector("#observablehq-part1AvgBar-b63b3261"));
+      if (name === "part1MultiBar") return new Inspector(document.querySelector("#observablehq-part1MultiBar-b63b3261"));
+      if (name === "viewof yearsmap") return new Inspector(document.querySelector("#observablehq-viewof-yearsmap-b63b3261"));
+      if (name === "viewof priority") return new Inspector(document.querySelector("#observablehq-viewof-priority-b63b3261"));
+      if (name === "map") return new Inspector(document.querySelector("#observablehq-map-b63b3261"));
+    });
+  </script>
   <script src="main.js"></script>
 </body>
 

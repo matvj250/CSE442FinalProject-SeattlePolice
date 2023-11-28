@@ -87,6 +87,10 @@ a {
   width: 100%;
 }
 
+.bottom-margin-1 {
+  margin-bottom: 2rem;
+}
+
 @media (min-width: 768px) {
   .title-box {
     background:
