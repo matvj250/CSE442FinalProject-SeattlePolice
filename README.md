@@ -1,4 +1,4 @@
-# What’s Your Likely Police Response Time, and Why?
+# What Has Caused Seattle Police Response Times to Change over Time?
 
 Team members:
 Richard Tran,Matthew Jack,Skyyler Fine
