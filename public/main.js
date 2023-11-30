@@ -1,6 +1,4 @@
-console.log("Add your visualizations here!");
-console.log("hehe");
-
+// Move side navigation on page scroll only if scrolled past page header
 window.addEventListener("scroll", () => {
     let sideNav = document.querySelector(".sidenav");
     let scrollHeight = document.documentElement.scrollTop;

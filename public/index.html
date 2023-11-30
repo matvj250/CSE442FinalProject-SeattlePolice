@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <!-- Uncomment if you want your page to NOT be indexed by search engines: -->
   <!-- <meta name="robots" content="none"> -->
+  <link rel="icon" href="img/police-icon.png" />
   <link href="https://fonts.googleapis.com/css2?family=Aleo:wght@400;700&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,700;1,9..40,400;1,9..40,700" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@observablehq/inspector@5/dist/inspector.css">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
@@ -61,12 +62,16 @@
             <p>
               First, we would likely provide some brief analysis about average police response times in Seattle across the years, which would align with our findings in the following visualizations for this part. We preface this by saying that the visualizations we created considering calls with priorities between 1-4. Further below (or perhaps below here), an interactive card group will explain precisely those priorities mean.
             </p>
+            <h3>Understanding Call Priorities</h3>
+            <img id="crime-table" alt="a table of call priorities and common crimes associated with them" src="img/crime-tables.png" />
             <p>
               At the very end, or rather, in this short paragraph, we might explain the basic interactions associated with this visualization, should they exist. If the visualization is indeed static, then we might consider highlighting key aspects of the data based on the visualization.
             </p>
           </div>
           <div class="col-md-6 col-xl-5">
-            <div id="observablehq-part1AvgBar-b63b3261"></div>
+            <div class="graph">
+              <div id="observablehq-part1AvgBar-ed510661"></div>
+            </div>
           </div>
           <div class="col-md-6 col-xl-7">
             <p>
@@ -80,7 +85,9 @@
             <p>
               We wrap up the first visualization pretty quickly, explaining its relevance in providing a rough overview of average Seattle police response times and their change over time. 
             </p>
-            <div id="observablehq-part1MultiBar-b63b3261"></div>
+            <div class="graph">
+              <div id="observablehq-part1MultiBar-ed510661"></div>
+            </div>
             <p>
               As a general note, this part of the article would be a good place for most of our static visualizations. And as yet another note, any interactive visualizations we create should have text describing how to interact with them somewhere in the article or near the area of the visualization.
             </p>
@@ -97,8 +104,10 @@
           <p>
             Survey says: we will add a graph here that allows the user to view an interactive line graph whose axes can change based on user selection. More details to come as we develop the interactive components, I'm sure. The purpose of this section is to view average police response times while comparing them to general statistics about Seattle, irrespective of neighborhood, beat, or other geographic marker (or so I'm led to believe).
           </p>
-          <div id="observablehq-viewof-group-b63b3261"></div>
-          <div id="observablehq-part2-b63b3261"></div>
+          <div class="graph">
+            <div id="observablehq-viewof-respCityFactor-ed510661" class="bottom-margin-1"></div>
+            <div id="observablehq-respCityInfluences-ed510661"></div>
+          </div>
           <p>
             For this part, I feel having the visualization sit on its own, rather than in a column layout, makes more sense considering the increased level of interactivity. The focus of this visualization will continue to be about Seattle response times, but now examining potential factors in (slightly) greater detail. We don't want to show all of our cards on table before we've prepped the real meat and potatoes, though--that would ruin the surprise for our audience. 
           </p>
@@ -119,8 +128,10 @@
           <p>
             Opening text: These changes in police response times aren't equal across all parts of Seattle. Worthy of our time to look at specific beats, or subsets of police areas, and see which are disproportionately affected or "safe" from this trend.
           </p>
-          <div id="observablehq-viewof-year-b63b3261"></div>
-          <div id="observablehq-part3-b63b3261"></div>
+          <div class="graph">
+            <div id="observablehq-viewof-respDiffYear-ed510661" class="bottom-margin-1"></div>
+            <div id="observablehq-respDiffBar-ed510661"></div>
+          </div>
           <p>
             Look at B1, B2, B3 to ascertain why they remained among the worst.
             <br />
@@ -137,10 +148,19 @@
           <p>
             Here's a heatmap of neighborhoods, racial groups, and the percentage of the population that those groups make up of those neighborhoods.
           </p>
-          <div id="observablehq-viewof-group2-b63b3261" class="bottom-margin-1"></div>
-          <div id="observablehq-heatmap-b63b3261"></div>
+          <div class="graph">
+            <div id="observablehq-viewof-beatAspects-ed510661" class="bottom-margin-1"></div>
+            <div id="observablehq-demoHeatMap-ed510661"></div>
+          </div>
           <p>
             This heatmap shows the distribution of racial identities across Seattle's neighborhoods. While this visualization alone is insufficient in drawing connections to police response times, we would necessarily include other visualizations somewhere (probably somewhere after this) where we examine neighborhood/beat specific response times. Particularly, this might be the map in the next part (part 4), but that depends on what visualizations we intend to keep or add to this article. 
+          </p>
+          <div class="graph">
+            <div id="observablehq-viewof-group3-ed510661" class="bottom-margin-1"></div>
+            <div id="observablehq-popDensity-ed510661"></div>
+          </div>
+          <p>
+            We found that there is no correlation between beat population density and response times.
           </p>
         </div>
 
@@ -150,10 +170,10 @@
           <p>
             The crowning jewel, so splendidly does it shine: a map of beats (or neighborhoods) and average response times, filtered by priority. We would need to remind the audience that the call data we used to produce the response time calculates are limited to those with priority level 1-4.
           </p>
-          <div class="graph"> 
-            <div id="observablehq-viewof-yearsmap-b63b3261"></div>
-            <div id="observablehq-viewof-priority-b63b3261" class="bottom-margin-1"></div>
-            <div id="observablehq-map-b63b3261"></div>
+          <div class="graph">
+            <div id="observablehq-viewof-yearsmap-ed510661"></div>
+            <div id="observablehq-viewof-priority-ed510661" class="bottom-margin-1"></div>
+            <div id="observablehq-map-ed510661"></div>
           </div>
           <p>
             A final remark about the map, perhaps.
@@ -232,33 +252,39 @@
   </div>
 
 
-<!-- <div id="observablehq-viewof-group-b63b3261"></div>
-<div id="observablehq-part2-b63b3261"></div> -->
-<!-- <div id="observablehq-viewof-year-b63b3261"></div>
-<div id="observablehq-part3-b63b3261"></div> -->
-<!-- <div id="observablehq-viewof-group2-b63b3261"></div>
-<div id="observablehq-heatmap-b63b3261"></div> -->
-<!-- <div id="observablehq-part1AvgBar-b63b3261"></div> -->
-<!-- <div id="observablehq-part1MultiBar-b63b3261"></div> -->
-<!-- <div id="observablehq-viewof-yearsmap-b63b3261"></div>
-<div id="observablehq-viewof-priority-b63b3261"></div>
-<div id="observablehq-map-b63b3261"></div> -->
+
+  <!-- <div id="observablehq-part1AvgBar-ed510661"></div> -->
+  <!-- <div id="observablehq-part1MultiBar-ed510661"></div> -->
+  <!-- <div id="observablehq-viewof-respCityFactor-ed510661"></div> -->
+  <!-- <div id="observablehq-respCityInfluences-ed510661"></div> -->
+  <!-- <div id="observablehq-viewof-respDiffYear-ed510661"></div> -->
+  <!-- <div id="observablehq-respDiffBar-ed510661"></div> -->
+  <!-- <div id="observablehq-viewof-beatAspects-ed510661"></div> -->
+  <!-- <div id="observablehq-demoHeatMap-ed510661"></div> -->
+  <!-- <div id="observablehq-viewof-group3-ed510661"></div> -->
+  <!-- <div id="observablehq-popDensity-ed510661"></div> -->
+  <!-- <div id="observablehq-viewof-yearsmap-ed510661"></div> -->
+  <!-- <div id="observablehq-viewof-priority-ed510661"></div> -->
+  <!-- <div id="observablehq-map-ed510661"></div> -->
+  <!-- <p>Credit: <a href="https://observablehq.com/d/11c4b6df0988a406@873">Basic FP Graphs by Matthew Jack&#039;s Workspace</a></p> -->
 
   <script type="module">
     import {Runtime, Inspector} from "https://cdn.jsdelivr.net/npm/@observablehq/runtime@5/dist/runtime.js";
-    import define from "https://api.observablehq.com/d/11c4b6df0988a406@756.js?v=4";
+    import define from "https://api.observablehq.com/d/11c4b6df0988a406@873.js?v=4";
     new Runtime().module(define, name => {
-      if (name === "viewof group") return new Inspector(document.querySelector("#observablehq-viewof-group-b63b3261"));
-      if (name === "part2") return new Inspector(document.querySelector("#observablehq-part2-b63b3261"));
-      if (name === "viewof year") return new Inspector(document.querySelector("#observablehq-viewof-year-b63b3261"));
-      if (name === "part3") return new Inspector(document.querySelector("#observablehq-part3-b63b3261"));
-      if (name === "viewof group2") return new Inspector(document.querySelector("#observablehq-viewof-group2-b63b3261"));
-      if (name === "heatmap") return new Inspector(document.querySelector("#observablehq-heatmap-b63b3261"));
-      if (name === "part1AvgBar") return new Inspector(document.querySelector("#observablehq-part1AvgBar-b63b3261"));
-      if (name === "part1MultiBar") return new Inspector(document.querySelector("#observablehq-part1MultiBar-b63b3261"));
-      if (name === "viewof yearsmap") return new Inspector(document.querySelector("#observablehq-viewof-yearsmap-b63b3261"));
-      if (name === "viewof priority") return new Inspector(document.querySelector("#observablehq-viewof-priority-b63b3261"));
-      if (name === "map") return new Inspector(document.querySelector("#observablehq-map-b63b3261"));
+      if (name === "part1AvgBar") return new Inspector(document.querySelector("#observablehq-part1AvgBar-ed510661"));
+      if (name === "part1MultiBar") return new Inspector(document.querySelector("#observablehq-part1MultiBar-ed510661"));
+      if (name === "viewof respCityFactor") return new Inspector(document.querySelector("#observablehq-viewof-respCityFactor-ed510661"));
+      if (name === "respCityInfluences") return new Inspector(document.querySelector("#observablehq-respCityInfluences-ed510661"));
+      if (name === "viewof respDiffYear") return new Inspector(document.querySelector("#observablehq-viewof-respDiffYear-ed510661"));
+      if (name === "respDiffBar") return new Inspector(document.querySelector("#observablehq-respDiffBar-ed510661"));
+      if (name === "viewof beatAspects") return new Inspector(document.querySelector("#observablehq-viewof-beatAspects-ed510661"));
+      if (name === "demoHeatMap") return new Inspector(document.querySelector("#observablehq-demoHeatMap-ed510661"));
+      if (name === "viewof group3") return new Inspector(document.querySelector("#observablehq-viewof-group3-ed510661"));
+      if (name === "popDensity") return new Inspector(document.querySelector("#observablehq-popDensity-ed510661"));
+      if (name === "viewof yearsmap") return new Inspector(document.querySelector("#observablehq-viewof-yearsmap-ed510661"));
+      if (name === "viewof priority") return new Inspector(document.querySelector("#observablehq-viewof-priority-ed510661"));
+      if (name === "map") return new Inspector(document.querySelector("#observablehq-map-ed510661"));
     });
   </script>
   <script src="main.js"></script>
