@@ -99,7 +99,7 @@ a {
 
 .card-container {
   position: relative;
-  height: 400px;
+  height: 325px;
   perspective: 1000px;
   margin-bottom: 1rem;
 }
@@ -127,8 +127,7 @@ a {
   transform: rotateY(180deg);
 }
 
-.card-container:hover .card,
-.card-container:focus .card {
+.card-container.hover .card {
   transform: rotateY(180deg);
 }
 
@@ -155,6 +154,22 @@ a {
   font-size: 1.25rem;
 }
 
+.card-col:nth-child(even) {
+  padding-left: 0.8rem;
+  padding-right: 0.4rem;
+}
+
+.card-col:nth-child(odd) {
+  padding-left: 0.4rem;
+  padding-right: 0.8rem;
+}
+
+@media (min-width: 576px) {
+  .card-container {
+    height: 275px;
+  }
+}
+
 @media (min-width: 768px) {
   .title-box {
     background:
@@ -177,6 +192,10 @@ a {
 
   #call-priorities-section {
     margin-left: 0;
+  }
+
+  .card-container {
+    height: 325px;
   }
 }
 
@@ -219,6 +238,11 @@ a {
 
   .card-container {
     margin: 1rem 0rem;
-    height: 400px
+    height: 450px
+  }
+
+  .card-col:nth-child(3), .card-col:nth-child(4) {
+    padding-left: 0.4rem;
+    padding-right: 0.4rem;
   }
 }

@@ -10,3 +10,11 @@ window.addEventListener("scroll", () => {
         sideNav.style.marginTop = "3rem";
     }
 });
+
+// Flip on card click listener
+let cards = document.querySelectorAll(".card-container");
+for (let i = 0; i < cards.length; i++) {
+    cards[i].addEventListener("click", () => {
+        cards[i].classList.toggle("hover");
+    });
+}
