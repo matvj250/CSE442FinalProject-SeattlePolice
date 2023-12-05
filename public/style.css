@@ -86,8 +86,12 @@ a {
   width: 100%;
 }
 
-.graph, .bottom-margin-1 {
+.bottom-margin-1 {
   margin-bottom: 1rem;
+}
+
+.graph {
+  margin-bottom: 3rem;
 }
 
 #call-priorities-section {
@@ -102,6 +106,15 @@ a {
   height: 325px;
   perspective: 1000px;
   margin-bottom: 1rem;
+}
+
+.graph-labels {
+  font-family: Helvetica, sans-serif;
+  padding: 1rem 0;
+  font-weight: bold;
+  font-size: 0.8rem;
+  text-align: center;
+  margin-left: 0.25rem;
 }
 
 .card {
