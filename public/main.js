@@ -1,4 +1,4 @@
-import crimeTableData from './data/crimes.json' assert {type: "json"};
+import crimeTableData from './data/crimes.js';
 
 // Move side navigation on page scroll only if scrolled past page header
 window.addEventListener("scroll", () => {

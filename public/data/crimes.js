@@ -1,4 +1,4 @@
-[
+export default [
     {
         "beat": "B1",
         "top-crimes-2010": [
