@@ -41,7 +41,7 @@ a {
   border-top: 0.25rem solid #73ad4b;
 }
 
-.content {
+.text-content {
   padding-left: 1rem;
   padding-right: 1rem;
 }
@@ -67,7 +67,9 @@ a {
 }
 
 .sidenav a {
-  color: black;
+  color: #0f233f;
+  font-weight: bold;
+  text-decoration: none;
 }
 
 .sidenav a:hover {
@@ -78,27 +80,15 @@ a {
   margin-bottom: 1.25rem;
 }
 
-#sources li {
-  margin-left: 2rem;
-}
-
 #police-office, #police-lights, #crime-table {
   width: 100%;
-}
-
-.bottom-margin-1 {
-  margin-bottom: 1rem;
-}
-
-.graph {
-  margin-bottom: 3rem;
 }
 
 #call-priorities-section {
   background-color: #0f233f;
   border-radius: 0.75rem;
-  margin-left: 1rem;
-  margin-right: 1rem;
+  margin-left: 0;
+  margin-right: 0;
 }
 
 .card-container {
@@ -110,7 +100,6 @@ a {
 
 .graph-labels {
   font-family: Helvetica, sans-serif;
-  padding: 1rem 0;
   font-weight: bold;
   font-size: 0.8rem;
   text-align: center;
@@ -167,14 +156,49 @@ a {
   font-size: 1.25rem;
 }
 
-.card-col:nth-child(even) {
-  padding-left: 0.8rem;
-  padding-right: 0.4rem;
+blockquote {
+  background-color: #eee;
+  padding: 0.5rem 1rem;
 }
 
-.card-col:nth-child(odd) {
-  padding-left: 0.4rem;
-  padding-right: 0.8rem;
+.article-link {
+  color: #0f233f;
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+#sources a {
+  color: black;
+  text-decoration: underline;
+}
+
+#body-sidenav {
+  display: none;
+}
+
+.note-box p {
+  margin: 0;
+}
+
+.accordion p {
+  margin: 0;
+}
+
+.accordion a {
+  display: block;
+  padding-bottom: 0.5rem;
+}
+
+.accordion li {
+  margin-bottom: 1rem;
+}
+
+img {
+  margin-bottom: 0.5rem;
+}
+
+.sidenav-header {
+  background-color: yellowgreen;
 }
 
 @media (min-width: 576px) {
@@ -229,6 +253,14 @@ a {
   #body-text {
     padding-right: 2rem;
   }
+
+  #body-sidenav {
+    display: block;
+  }
+
+  blockquote {
+    margin-right: 20%;
+  }
 }
 
 @media (min-width: 1200px) {
@@ -254,8 +286,7 @@ a {
     height: 450px
   }
 
-  .card-col:nth-child(3), .card-col:nth-child(4) {
-    padding-left: 0.4rem;
-    padding-right: 0.4rem;
+  .card-col {
+    padding: 0.4rem;
   }
 }
