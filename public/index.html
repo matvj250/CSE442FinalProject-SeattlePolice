@@ -62,11 +62,14 @@
               <div class="graph">
                 <div id="part1AvgBar"></div>
               </div>
+              <p>
+                <strong>Dataset(s):</strong> <a class="article-link" href="https://data.seattle.gov/Public-Safety/Call-Data/33kz-ixgy" target="_blank">SPD 911 Call Data</a>
+              </p>
             </div>
             <div class="col-md-6 col-xl-7">
               <div class="note-box bg-warning-subtle p-3 mb-3 mt-xl-5">
                 <p>
-                  <strong>Note:</strong> Response time was calculated as the difference between the time a police officer arrived at a caller's location and the time the call was queued in the SPD dispatch system. Certain types of calls - such as officer-initiated traffic stops or assigned duties - were deemed irrelevant to our investigation and were thus excluded from our visualizations.
+                  <strong>Note:</strong> Response time was calculated as the difference between the time a police officer arrived at a caller's location and the time the call was queued in the SPD dispatch system. Certain types of calls - such as officer-initiated traffic stops or assigned duties - were deemed irrelevant to our investigation and were thus excluded from our visualizations. 2010 is the first full year in the SPD call dataset, which is why most of our visualizations examine changes in police response times from that year onwards.
                 </p>
               </div>
             </div>
@@ -74,7 +77,7 @@
 
           <div class="col">
             <p>
-              Before going further into our analysis, we want to establish that we're not covering this subject with the idea that everyone cares about police response times. Many Americans do not trust the police out of concerns that they will make a situation worse, especially after <a class="article-link" href="https://www.vice.com/en/article/wx5n4z/what-if-we-just-stopped-calling-the-cops" target="_blank">the murder of George Floyd in 2020</a>.
+              Before going further into our analysis, we want to establish that we're not covering this subject with the idea that everyone cares about police response times. Many Americans do not trust the police out of concerns that they will make a situation worse, <a class="article-link" href="https://www.vice.com/en/article/wx5n4z/what-if-we-just-stopped-calling-the-cops" target="_blank">especially after the murder of George Floyd in 2020</a>.
             </p>
             <p>
               That being said, there remain people who want to be able to rely on the police and measure this reliability through response times, like Kaugala and other Seattle business owners. This recent trend in SPD response times raises the question of <em>how</em> and <em>why</em> call response times have changed over the years. In this article, we will explore potential factors contributing to the increases in SPD response times, possibly challenging preconceived notions about the causes of these trends along the way. We also want to make it clear that police response times are not analogous to safety, something we'll substantiate later in this investigation.
@@ -242,7 +245,7 @@
               </p>
             </div>
             <p>
-              Through our research, we believe the “Unknown” call type represents calls where the caller doesn't say anything. This could be due to <a class="article-link" href="https://www.huffpost.com/entry/what-happens-if-911-gets_b_6903968" target="_blank">a threat of violence, a stroke, etc</a>. 99.91% of “Unknown” calls in Seattle were priority 1.
+              Through our research, we believe the “Unknown” call type represents calls where the caller doesn't say anything. <a class="article-link" href="https://www.huffpost.com/entry/what-happens-if-911-gets_b_6903968" target="_blank">This could be due to a threat of violence, a stroke, etc</a>. 99.91% of “Unknown” calls in Seattle from 2010 to 2022 were priority 1 calls.
             </p>
           </div>
 
@@ -255,6 +258,9 @@
               <div id="part1MultiBar"></div>
               <p class="graph-labels">Year</p>
             </div>
+            <p>
+              <strong>Dataset(s):</strong> <a class="article-link" href="https://data.seattle.gov/Public-Safety/Call-Data/33kz-ixgy" target="_blank">SPD 911 Call Data</a>
+            </p>
             <p>
               It's clear that the increase in response times is not equally distributed between call priorities. Notably, priority 2, 3, and 4 calls have suffered from the most significant increases.
             </p>
@@ -272,6 +278,9 @@
               <div id="part1MapPriorSelect" class="mb-4"></div>
               <div id="part1Map"></div>
             </div>
+            <p>
+              <strong>Dataset(s):</strong> <a class="article-link" href="https://data.seattle.gov/Public-Safety/Call-Data/33kz-ixgy" target="_blank">SPD 911 Call Data</a>, <a class="article-link" href="https://data-seattlecitygis.opendata.arcgis.com/datasets/SeattleCityGIS::census-tract-top-50-american-community-survey-data/about" target="_blank">Census Tract Top 50 American Community Survey Data</a>
+            </p>
             <p>
               Once again, not all beats are equally affected by this trend. Some beats have consistently experienced the worst response times throughout this entire time period, some only join the set of beats with the worst response times in a certain year range, and so on. We'll break these differences down later in the article.
             </p>
@@ -302,6 +311,9 @@
               <div id="part2RespCityInfluences"></div>
             </div>
             <p>
+              <strong>Dataset(s):</strong> <a class="article-link" href="https://data.seattle.gov/Public-Safety/Call-Data/33kz-ixgy" target="_blank">SPD 911 Call Data</a>, <a class="article-link" href="https://openbudget.seattle.gov/#!/year/2023/operating/0/service" target="_blank">Seattle Open Budget</a>, <a class="article-link" href="https://data.seattle.gov/Public-Safety/SPD-Crime-Data-2008-Present/tazs-3rd5" target="_blank">SPD Crime Data: 2008-Present</a>, <a class="article-link" href="https://data-seattlecitygis.opendata.arcgis.com/datasets/SeattleCityGIS::census-tract-top-50-american-community-survey-data/about" target="_blank">Census Tract Top 50 American Community Survey Data</a>, <a class="article-link" href="https://www.waspc.org/cjis-statistics---reports" target="_blank">Washington Association of Sherrifs and Police Chiefs: 1980-1922 Full-Time Law Enforcement Employees</a>, <a  class="article-link" href="https://www.seattle.gov/transportation/document-library/reports-and-studies" target="_blank">Seattle Department of Transportation Traffic Reports</a>
+            </p>
+            <p>
               Police budget and number of Seattle police officers are the only influences that seem to have a noticeable correlation with average SPD response time, that correlation being negative. However, it's important to note that our budget data doesn't cover many years, and the number of SPD officers really only negatively correlates with response times in 2021 and 2022.
             </p>
           </div>
@@ -320,6 +332,9 @@
               <div id="part3Density"></div>
             </div>
             <p>
+              <strong>Dataset(s):</strong> <a class="article-link" href="https://data.seattle.gov/Public-Safety/Call-Data/33kz-ixgy" target="_blank">SPD 911 Call Data</a>, <a class="article-link" href="https://data-seattlecitygis.opendata.arcgis.com/datasets/SeattleCityGIS::census-tract-top-50-american-community-survey-data/about" target="_blank">Census Tract Top 50 American Community Survey Data</a>
+            </p>
+            <p>
               There appears to be no effect of population density on average police response time, since beats with low population density all have different levels of average response time no matter the year.
             </p>
           </div>
@@ -332,6 +347,9 @@
               <div id="part3RespDiffYearSelect" class="mb-3"></div>
               <div id="part3RespDiffBar"></div>
             </div>
+            <p>
+              <strong>Dataset(s):</strong> <a class="article-link" href="https://data.seattle.gov/Public-Safety/Call-Data/33kz-ixgy" target="_blank">SPD 911 Call Data</a>, <a class="article-link" href="https://data-seattlecitygis.opendata.arcgis.com/datasets/SeattleCityGIS::census-tract-top-50-american-community-survey-data/about" target="_blank">Census Tract Top 50 American Community Survey Data</a>
+            </p>
             <p>
               Examining the beats that had the highest and lowest differences from their 2010 average response times, we found that:
             </p>
@@ -365,6 +383,9 @@
               <div id="part3DemoHeatMap"></div>
             </div>
             <p>
+              <strong>Dataset(s):</strong> <a class="article-link" href="https://data.seattle.gov/Public-Safety/Call-Data/33kz-ixgy" target="_blank">SPD 911 Call Data</a>, <a class="article-link" href="https://data-seattlecitygis.opendata.arcgis.com/datasets/SeattleCityGIS::census-tract-top-50-american-community-survey-data/about" target="_blank">Census Tract Top 50 American Community Survey Data</a>, <a href="https://data.seattle.gov/Public-Safety/SPD-Crime-Data-2008-Present/tazs-3rd5" target="_blank">SPD Crime Data: 2008-Present</a>
+            </p>
+            <p>
               There seems to be no real relationship between any of the demographic data and average response times. But response time is just one measurement of police performance; we're not claiming that call responses are completely free of bias nor independent of crime rate entirely.
             </p>
           </div>
@@ -388,6 +409,9 @@
                 </tbody>
               </table>
             </div>
+            <p>
+              <strong>Dataset(s):</strong> <a class="article-link" href="https://data.seattle.gov/Public-Safety/Call-Data/33kz-ixgy" target="_blank">SPD 911 Call Data</a>, <a class="article-link" href="https://data-seattlecitygis.opendata.arcgis.com/datasets/SeattleCityGIS::census-tract-top-50-american-community-survey-data/about" target="_blank">Census Tract Top 50 American Community Survey Data</a>, <a href="https://data.seattle.gov/Public-Safety/SPD-Crime-Data-2008-Present/tazs-3rd5" target="_blank">SPD Crime Data: 2008-Present</a>
+            </p>
             <p>
               The clearest pattern we find is that most of these beats have disturbances, reports of suspicious people, noise, and other low priority calls as their predominant call types. However, one beat sticks out, that being M3, which has “Unknown” as one of their predominant call types in 2010. As mentioned earlier, “Unknown” calls are almost never below priority 1, and M3 is among the beats who deviated the least from its 2010 average response time. This could mean that a beat's average response time is influenced simply by the crimes committed in that beat.
             </p>
@@ -591,25 +615,25 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
   <script type="module">
     import {Runtime, Inspector} from "https://cdn.jsdelivr.net/npm/@observablehq/runtime@5/dist/runtime.js";
-import define from "https://api.observablehq.com/d/11c4b6df0988a406@1373.js?v=4";
-    
-new Runtime().module(define, name => {
-    if (name === "part1AvgBar") return new Inspector(document.querySelector("#part1AvgBar"));
-    if (name === "part1MultiBar") return new Inspector(document.querySelector("#part1MultiBar"));
-    if (name === "viewof yearsmap") return new Inspector(document.querySelector("#part1MapYearSelect"));
-    if (name === "viewof priority") return new Inspector(document.querySelector("#part1MapPriorSelect"));
-    if (name === "map") return new Inspector(document.querySelector("#part1Map"));
-    if (name === "viewof respCityFactor") return new Inspector(document.querySelector("#part2RespCityFactorSelect"));
-    if (name === "respCityInfluences") return new Inspector(document.querySelector("#part2RespCityInfluences"));
-    if (name === "viewof group3") return new Inspector(document.querySelector("#part3DensityYearSelect"));
-    if (name === "popDensity") return new Inspector(document.querySelector("#part3Density"));
-    if (name === "viewof respDiffYear") return new Inspector(document.querySelector("#part3RespDiffYearSelect"));
-    if (name === "respDiffBar") return new Inspector(document.querySelector("#part3RespDiffBar"));
-    if (name === "viewof beatAspects") return new Inspector(document.querySelector("#part3beatAspectSelect"));
-    if (name === "demoHeatMap") return new Inspector(document.querySelector("#part3DemoHeatMap"));
-});
+    import define from "https://api.observablehq.com/d/11c4b6df0988a406@1373.js?v=4";
+        
+    new Runtime().module(define, name => {
+        if (name === "part1AvgBar") return new Inspector(document.querySelector("#part1AvgBar"));
+        if (name === "part1MultiBar") return new Inspector(document.querySelector("#part1MultiBar"));
+        if (name === "viewof yearsmap") return new Inspector(document.querySelector("#part1MapYearSelect"));
+        if (name === "viewof priority") return new Inspector(document.querySelector("#part1MapPriorSelect"));
+        if (name === "map") return new Inspector(document.querySelector("#part1Map"));
+        if (name === "viewof respCityFactor") return new Inspector(document.querySelector("#part2RespCityFactorSelect"));
+        if (name === "respCityInfluences") return new Inspector(document.querySelector("#part2RespCityInfluences"));
+        if (name === "viewof group3") return new Inspector(document.querySelector("#part3DensityYearSelect"));
+        if (name === "popDensity") return new Inspector(document.querySelector("#part3Density"));
+        if (name === "viewof respDiffYear") return new Inspector(document.querySelector("#part3RespDiffYearSelect"));
+        if (name === "respDiffBar") return new Inspector(document.querySelector("#part3RespDiffBar"));
+        if (name === "viewof beatAspects") return new Inspector(document.querySelector("#part3beatAspectSelect"));
+        if (name === "demoHeatMap") return new Inspector(document.querySelector("#part3DemoHeatMap"));
+    });
   </script>
-  <script type="module" src="main.js"></script>
+  <script type="module" src="main.js" crossorigin="use-credentials"></script>
 </body>
 
 </html>
