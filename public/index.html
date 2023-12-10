@@ -42,7 +42,7 @@
           <div class="col">
             <h2>Part 1: The Growing Issue</h2>
             <hr />
-            <img id="police-lights" src="img/police-lights.jpg" alt="flashing lights on the top of a police car" />
+            <img id="police-lights" src="img/police-lights.webp" alt="flashing lights on the top of a police car" />
             <p>
               <em class="mb-caption">How have Seattle police response times changed over time?</em>
             </p>
@@ -89,7 +89,7 @@
               <div class="row">
                 <div class="col-lg-12 intro">
                   <h3>WHAT ARE POLICE CALL PRIORITIES?</h3>
-                  <p>Click on the cards to find out!</p>
+                  <p>Click on the following cards to find out.</p>
                 </div>
                 <div class="col-md-6 col-xxl-3 card-col">
                     <div class="card-container">
@@ -235,7 +235,7 @@
             </div>
           </div>
 
-          <div class="col">
+          <div class="col-12">
             <div class="note-box bg-warning-subtle my-4 px-3 py-3">
               <p>
                 <strong>Note:</strong> “Predominant call categories” were determined by taking the initial call types from the SPD call dataset, grouping them into more general categories (e.g. “Assault - Domestic Violence”, “Assault - In Progress/Just Occurred - Domestic Violence”, etc. were grouped into the more general “Assault” category), and finding which categories were assigned to each priority the most from 2010-2022.
@@ -540,6 +540,12 @@
               <li>
                 <a href="https://www.dailyuw.com/news/businesses-on-the-ave-raise-serious-concerns-over-slow-police-response-times/article_48d54374-88f2-11ee-8518-87ddda24832d.html?utm_source=The+Daily+of+the+University+of+Washington&utm_campaign=e21937bfed-EMAIL_CAMPAIGN_2021_10_21_03_17_COPY_01&utm_medium=email&utm_term=0_88803f53f6-e21937bfed-405926692" target="_blank">Businesses on the Ave raise serious concerns over slow police response times - The Daily</a>
               </li>
+              <li>
+                <a href="https://komonews.com/resources/media2/16x9/full/1015/center/80/14e68656-53b7-4895-90bd-6e6593088118-large16x9_spd4.JPG" target="_blank">Seattle PD cruiser image</a>
+              </li>
+              <li>
+                <a href="https://police.escondido.org/Data/Sites/4/media/images/Photos/Dispatch1.JPG" target="_blank">An image of a police dispatch office</a>
+              </li>
             </ul>
           </div>
         </div>
@@ -583,6 +589,26 @@
   <!-- <p>Credit: <a href="https://observablehq.com/d/11c4b6df0988a406@1369">Basic FP Graphs by Matthew Jack&#039;s Workspace</a></p> -->
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+  <script type="module">
+    import {Runtime, Inspector} from "https://cdn.jsdelivr.net/npm/@observablehq/runtime@5/dist/runtime.js";
+import define from "https://api.observablehq.com/d/11c4b6df0988a406@1373.js?v=4";
+    
+new Runtime().module(define, name => {
+    if (name === "part1AvgBar") return new Inspector(document.querySelector("#part1AvgBar"));
+    if (name === "part1MultiBar") return new Inspector(document.querySelector("#part1MultiBar"));
+    if (name === "viewof yearsmap") return new Inspector(document.querySelector("#part1MapYearSelect"));
+    if (name === "viewof priority") return new Inspector(document.querySelector("#part1MapPriorSelect"));
+    if (name === "map") return new Inspector(document.querySelector("#part1Map"));
+    if (name === "viewof respCityFactor") return new Inspector(document.querySelector("#part2RespCityFactorSelect"));
+    if (name === "respCityInfluences") return new Inspector(document.querySelector("#part2RespCityInfluences"));
+    if (name === "viewof group3") return new Inspector(document.querySelector("#part3DensityYearSelect"));
+    if (name === "popDensity") return new Inspector(document.querySelector("#part3Density"));
+    if (name === "viewof respDiffYear") return new Inspector(document.querySelector("#part3RespDiffYearSelect"));
+    if (name === "respDiffBar") return new Inspector(document.querySelector("#part3RespDiffBar"));
+    if (name === "viewof beatAspects") return new Inspector(document.querySelector("#part3beatAspectSelect"));
+    if (name === "demoHeatMap") return new Inspector(document.querySelector("#part3DemoHeatMap"));
+});
+  </script>
   <script type="module" src="main.js"></script>
 </body>
 
