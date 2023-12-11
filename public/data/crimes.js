@@ -3,7 +3,7 @@ export default [
         "beat": "B1",
         "top-crimes-2010": [
             {
-                "crime": "Disturbance (Misc.)",
+                "crime": "Disturbance (misc.)",
                 "count": 417
             },
             {
@@ -25,7 +25,7 @@ export default [
         ],
         "top-crimes-2015": [
             {
-                "crime": "Disturbance (Misc.)",
+                "crime": "Disturbance (misc.)",
                 "count": 530
             },
             {
@@ -47,7 +47,7 @@ export default [
         ],
         "top-crimes-2020": [
             {
-                "crime": "Disturbance (Misc.)",
+                "crime": "Disturbance (misc.)",
                 "count": 454
             },
             {
@@ -76,7 +76,7 @@ export default [
                 "count": 443
             },
             {
-                "crime": "Disturbance (Misc.)",
+                "crime": "Disturbance (misc.)",
                 "count": 379
             },
             {
@@ -102,7 +102,7 @@ export default [
                 "count": 370
             },
             {
-                "crime": "Disturbance (Misc.)",
+                "crime": "Disturbance (misc.)",
                 "count": 353
             },
             {
@@ -120,7 +120,7 @@ export default [
                 "count": 442
             },
             {
-                "crime": "Disturbance (Misc.)",
+                "crime": "Disturbance (misc.)",
                 "count": 354
             },
             {
@@ -149,7 +149,7 @@ export default [
                 "count": 330
             },
             {
-                "crime": "Disturbance (Misc.)",
+                "crime": "Disturbance (misc.)",
                 "count": 317
             },
             {
@@ -175,7 +175,7 @@ export default [
                 "count": 310
             },
             {
-                "crime": "Disturbance (Misc.)",
+                "crime": "Disturbance (misc.)",
                 "count": 303
             },
             {
@@ -189,7 +189,7 @@ export default [
                 "count": 329
             },
             {
-                "crime": "Disturbance (Misc.)",
+                "crime": "Disturbance (misc.)",
                 "count": 321
             },
             {
@@ -210,7 +210,7 @@ export default [
         "beat": "D3",
         "top-crimes-2010": [
             {
-                "crime": "Disturbance (Misc.)",
+                "crime": "Disturbance (misc.)",
                 "count": 415
             },
             {
@@ -232,7 +232,7 @@ export default [
         ],
         "top-crimes-2015": [
             {
-                "crime": "Disturbance (Misc.)",
+                "crime": "Disturbance (misc.)",
                 "count": 386
             },
             {
@@ -254,7 +254,7 @@ export default [
         ],
         "top-crimes-2020": [
             {
-                "crime": "Disturbance (Misc.)",
+                "crime": "Disturbance (misc.)",
                 "count": 301
             },
             {
@@ -279,7 +279,7 @@ export default [
         "beat": "E2",
         "top-crimes-2010": [
             {
-                "crime": "Disturbance (Misc.)",
+                "crime": "Disturbance (misc.)",
                 "count": 339
             },
             {
@@ -301,7 +301,7 @@ export default [
         ],
         "top-crimes-2015": [
             {
-                "crime": "Disturbance (Misc.)",
+                "crime": "Disturbance (misc.)",
                 "count": 682
             },
             {
@@ -323,7 +323,7 @@ export default [
         ],
         "top-crimes-2020": [
             {
-                "crime": "Disturbance (Misc.)",
+                "crime": "Disturbance (misc.)",
                 "count": 379
             },
             {
@@ -348,7 +348,7 @@ export default [
         "beat": "M1",
         "top-crimes-2010": [
             {
-                "crime": "Disturbance (Misc.)",
+                "crime": "Disturbance (misc.)",
                 "count": 365
             },
             {
@@ -370,7 +370,7 @@ export default [
         ],
         "top-crimes-2015": [
             {
-                "crime": "Disturbance (Misc.)",
+                "crime": "Disturbance (misc.)",
                 "count": 505
             },
             {
@@ -396,7 +396,7 @@ export default [
                 "count": 363
             },
             {
-                "crime": "Disturbance (Misc.)",
+                "crime": "Disturbance (misc.)",
                 "count": 316
             },
             {
@@ -417,7 +417,7 @@ export default [
         "beat": "M3",
         "top-crimes-2010": [
             {
-                "crime": "Disturbance (Misc.)",
+                "crime": "Disturbance (misc.)",
                 "count": 378
             },
             {
@@ -439,7 +439,7 @@ export default [
         ],
         "top-crimes-2015": [
             {
-                "crime": "Disturbance (Misc.)",
+                "crime": "Disturbance (misc.)",
                 "count": 537
             },
             {
@@ -465,7 +465,7 @@ export default [
                 "count": 279
             },
             {
-                "crime": "Disturbance (Misc.)",
+                "crime": "Disturbance (misc.)",
                 "count": 279
             },
             {
@@ -494,7 +494,7 @@ export default [
                 "count": 433
             },
             {
-                "crime": "Disturbance (Misc.)",
+                "crime": "Disturbance (misc.)",
                 "count": 364
             },
             {
@@ -524,7 +524,7 @@ export default [
                 "count": 397
             },
             {
-                "crime": "Disturbance (Misc.)",
+                "crime": "Disturbance (misc.)",
                 "count": 326
             }
         ],
@@ -534,7 +534,7 @@ export default [
                 "count": 429
             },
             {
-                "crime": "Disturbance (Misc.)",
+                "crime": "Disturbance (misc.)",
                 "count": 337
             },
             {
@@ -567,7 +567,7 @@ export default [
                 "count": 192
             },
             {
-                "crime": "Disturbance (Misc.)",
+                "crime": "Disturbance (misc.)",
                 "count": 182
             },                {
                 "crime": "Disturbance (Domestic Violence)",
@@ -592,7 +592,7 @@ export default [
                 "count": 182
             },
             {                
-                "crime": "Disturbance (Misc.)",
+                "crime": "Disturbance (misc.)",
                 "count": 167
             }
         ],
@@ -610,7 +610,7 @@ export default [
                 "count": 152
             },
             {
-                "crime": "Disturbance (Misc.)",
+                "crime": "Disturbance (misc.)",
                 "count": 128
             },
             {
