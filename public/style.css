@@ -209,10 +209,10 @@ img {
 
 @media (min-width: 768px) {
   .title-box {
-    background:
+    background-image:
       linear-gradient(rgba(15, 35, 63, 0.75), rgba(15, 35, 63, 0.75)),
       url("img/seattle.jpg");
-    background-size: cover;
+    background-size: 100%;
     padding-top: 15vh;
     padding-bottom: 15vh;
   }
@@ -268,6 +268,7 @@ img {
     background:
       linear-gradient(rgba(15, 35, 63, 0.75), rgba(15, 35, 63, 0.75)),
       url("img/seattle-lg.jpg");
+    background-size: 100%;
   }
 }
 
