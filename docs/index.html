@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <!-- Uncomment if you want your page to NOT be indexed by search engines: -->
+  <!-- <meta name="robots" content="none"> -->
+  <link rel="icon" href="img/police-icon.png" />
+  <link href="https://fonts.googleapis.com/css2?family=Aleo:wght@400;700&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,700;1,9..40,400;1,9..40,700" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@observablehq/inspector@5/dist/inspector.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  <link rel="stylesheet" href="style.css" />
+  <title>What Has Caused Seattle Police Response Times to Change over Time?</title>
+
+  <!-- Uncomment if using d3: -->
+  <!-- <script src="https://d3js.org/d3.v7.min.js"></script> -->
+</head>
+
+<body>
+  <div class="container-fluid header">
+    <nav class="navbar navbar-dark bg-dark">
+      <div class="container-fluid">
+        <a class="navbar-brand ps-lg-4" href="./index.html">TJFPolice</a>
+      </div>
+    </nav>
+    <div class="container-fluid title-box">
+      <div class="container-fluid page-title">
+        <h1>What Has Caused Seattle Police Response Times to Change over Time?</h1>
+      </div>
+    </div>
+  </div>
+
+  <div class="container-fluid text-content py-2">
+    <div class="row">
+      <div id="body-text" class="col-lg-9">
+        <p id="authors">
+          <strong>Project By</strong>: Richard Tran, Matthew Jack, Skyyler Fine
+        </p>
+
+        <div id="part-1" class="row">
+          <div class="col-12">
+            <h2>Part 1: The Growing Issue</h2>
+            <hr />
+            <img id="police-lights" src="img/police-lights.webp" alt="flashing lights on the top of a police car" />
+            <p>
+              <em class="mb-caption">How have Seattle police response times changed over time?</em>
+            </p>
+            <p>
+              In a recent article from UW's newspaper The Daily, Wabula Kaugala, an employee at the local University Food and Beverage told writer Aspen Anderson that:
+            </p>
+            <blockquote>
+              "Unless someone is putting a knife to your throat, [the Seattle Police Department is] not going to come.”
+            </blockquote>
+            <p>
+              Many other local business employees that Anderson interviewed told similar stories entailing the Seattle Police Department (SPD) taking a long time to show up to calls, sometimes entirely failing to respond. This trend can be seen across all of Seattle:
+            </p>
+          </div>
+
+          <div class="row my-xs-3 mt-3 mb-2 mb-md-0">
+            <div class="col-md-6 col-xl-5">
+              <div class="graph">
+                <div id="part1AvgBar"></div>
+              </div>
+              <p>
+                <strong>Source(s):</strong> <a class="article-link" href="https://data.seattle.gov/Public-Safety/Call-Data/33kz-ixgy" target="_blank">SPD 911 Call Data</a>
+              </p>
+            </div>
+            <div class="col-md-6 col-xl-7">
+              <div class="note-box bg-warning-subtle p-3 mb-3 mt-xl-5">
+                <p>
+                  <strong>Note:</strong> Response time was calculated as the difference between the time a police officer arrived at a caller's location and the time the call was queued in the SPD dispatch system. Certain types of calls - such as officer-initiated traffic stops or assigned duties - were deemed irrelevant to our investigation and were thus excluded from our visualizations. 2010 is the first full year in the SPD call dataset, which is why most of our visualizations examine changes in police response times from that year onward.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-12">
+            <p>
+              Before going further into our analysis, we want to establish that we're not covering this subject with the idea that everyone cares about police response times. Many Americans do not trust the police out of concerns that they will make a situation worse, <a class="article-link" href="https://www.vice.com/en/article/wx5n4z/what-if-we-just-stopped-calling-the-cops" target="_blank">especially after the murder of George Floyd in 2020</a>.
+            </p>
+            <p>
+              That being said, there are people who want to rely on the police and measure this reliability through response times, like Kaugala and other Seattle business owners. This recent trend in SPD response times raises the question of <em>how</em> and <em>why</em> call response times have changed over the years. In this article, we will explore potential factors contributing to the increases in SPD response times, possibly challenging preconceived notions about the causes of these trends along the way. We also want to make clear that police response times are not analogous to safety, something we'll substantiate later in this investigation.
+            </p>
+            <p>
+              Now, the previous graph alone does not tell the full story. Whenever someone calls Seattle police, a police dispatcher assigns a priority to the call based on details provided by the caller. Some priorities are used specifically for officer-initiated events (such as traffic stops) or assigned duties (such as security at sports games); below is a breakdown of the call priorities that would be relevant to Seattle citizens when making 911 calls (and the only ones that we focus on throughout this article). Click on each card to see which categories were most commonly assigned to each priority:
+            </p>
+          </div>
+
+          <div id="call-priorities-section" class="row mt-3">
+            <div class="cards">
+              <div class="row">
+                <div class="col-lg-12 intro">
+                  <h3>WHAT ARE POLICE CALL PRIORITIES?</h3>
+                  <p>Click on the following cards to find out.</p>
+                </div>
+                <div class="col-md-6 col-xxl-3 card-col-12">
+                    <div class="card-container">
+                      <div class="card border-0 shadow-lg">
+                        <div class="card-front">
+                          <div class="card-header d-flex align-items-center">
+                            <h4>Priority 1</h4>
+                          </div>
+                          <div class="card-body">
+                            <p>
+                              <strong>Required Response:</strong>
+                              <br />
+                              <strong>Immediate</strong>
+                            </p>
+                            <p>
+                              Incidents which pose obvious danger to a citizen's or officer's life.
+                            </p>
+                          </div>
+                        </div>
+                        <div class="card-back">
+                          <div class="card-header d-flex align-items-center">
+                            <h4>Predominant Priority 1 Call Categories</h4>
+                          </div>
+                          <div class="card-body">
+                            <ul>
+                              <li>Assault</li>
+                              <li>Unknown</li>
+                              <li>Disturbance (Domestic Violence)</li>
+                              <li>Suicide</li>
+                              <li>Fight (No Weapons)</li>
+                            </ul>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-xxl-3 card-col-12">
+                  <div class="card-container">
+                    <div class="card border-0 shadow-lg">
+                      <div class="card-front">
+                        <div class="card-header d-flex align-items-center">
+                          <h4>Priority 2</h4>
+                        </div>
+                        <div class="card-body">
+                          <p>
+                            <strong>Required Response:</strong>
+                            <br />
+                            <strong>Urgent</strong>
+                          </p>
+                          <p>
+                            Incidents which may escalate into more dangerous situations without police intervention.
+                          </p>
+                        </div>
+                      </div>
+                      <div class="card-back">
+                        <div class="card-header d-flex align-items-center">
+                          <h4>Predominant Priority 2 Call Categories</h4>
+                        </div>
+                        <div class="card-body">
+                          <ul>
+                            <li>Disturbance (misc.)</li>
+                            <li>Suspicious Person, Vehicle, or Incident</li>
+                            <li>Trespass</li>
+                            <li>Shoplife</li>
+                            <li>Hazard</li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6 col-xxl-3 card-col-12">
+                  <div class="card-container">
+                    <div class="card border-0 shadow-lg">
+                      <div class="card-front">
+                        <div class="card-header d-flex align-items-center">
+                          <h4>Priority 3</h4>
+                        </div>
+                        <div class="card-body">
+                          <p>
+                            <strong>Required Response:</strong>
+                            <br />
+                            <strong>Prompt</strong>
+                          </p>
+                          <p>
+                            Investigations or small incidents that don't require a speedy response.
+                          </p>
+                        </div>
+                      </div>
+                      <div class="card-back">
+                        <div class="card-header d-flex align-items-center">
+                          <h4>Predominant Priority 3 Call Categories</h4>
+                        </div>
+                        <div class="card-body">
+                          <ul>
+                            <li>Suspicious Person, Vehicle Or Incident</li>
+                            <li>Disturbance (misc.)</li>
+                            <li>Burglary</li>
+                            <li>Theft (Not Including Shoplifting)</li>
+                            <li>Automobile Theft</li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6 col-xxl-3 card-col-12">
+                  <div class="card-container">
+                    <div class="card border-0 shadow-lg">
+                      <div class="card-front">
+                        <div class="card-header d-flex align-items-center">
+                          <h4>Priority 4</h4>
+                        </div>
+                        <div class="card-body">
+                          <p>
+                            <strong>Required Response:</strong>
+                            <br />
+                            <strong>As Available</strong>
+                          </p>
+                          <p>
+                            Incidents which constitute mischief or nuisance type complaints.
+                          </p>
+                        </div>
+                      </div>
+                      <div class="card-back">
+                        <div class="card-header d-flex align-items-center">
+                          <h4>Predominant Priority 4 Call Categories</h4>
+                        </div>
+                        <div class="card-body">
+                          <ul>
+                            <li>Noise</li>
+                            <li>Property - Damage, etc.</li>
+                            <li>Parking Violation</li>
+                            <li>Fireworks</li>
+                            <li>Abandoned Vehicle</li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-12">
+            <div class="note-box bg-warning-subtle my-4 px-3 py-3">
+              <p>
+                <strong>Note:</strong> “Predominant call categories” were determined by taking the initial call types from the SPD call dataset, grouping them into more general categories (e.g. “Assault - Domestic Violence”, “Assault - In Progress/Just Occurred - Domestic Violence”, etc. were grouped into the more general “Assault” category), and finding which categories were assigned to each priority the most from 2010-2022.
+              </p>
+            </div>
+            <p>
+              Through our research, we believe the “Unknown” call type represents calls where the caller doesn't say anything. <a class="article-link" href="https://www.huffpost.com/entry/what-happens-if-911-gets_b_6903968" target="_blank">This could be due to a threat of violence, etc</a>. 99.91% of “Unknown” calls in Seattle from 2010 to 2022 were Priority 1 calls.
+            </p>
+          </div>
+
+          <div class="col-12">
+            <p>
+              The visualization below represents the same data as our first graph, but groups calls by year and call priority. Scroll all the way to the right of the visualization and click on entries in the legend if you want to look at different priorities individually.
+            </p>
+            <div class="graph my-4">
+              <p class="graph-labels">Average SPD Response Time Over Time Per Call Priority</p>
+              <div id="part1MultiBar"></div>
+              <p class="graph-labels">Year</p>
+            </div>
+            <p>
+              <strong>Source(s):</strong> <a class="article-link" href="https://data.seattle.gov/Public-Safety/Call-Data/33kz-ixgy" target="_blank">SPD 911 Call Data</a>
+            </p>
+            <p>
+              It's clear that the increase in response times is not equally distributed between call priorities. Notably, Priority 2, 3, and 4 calls have suffered from the most significant increases.
+            </p>
+          </div>
+
+          <div class="col-12">
+            <p>
+              Another aspect to this story relates to how the trend in police response time varies between the different areas of Seattle. The SPD does not break down its calls by neighborhood, but rather by “beats”, which are defined subsections of the areas that make up the five different SPD precincts. These are not directly analogous to Seattle neighborhoods, but based on their location, they can be used as proxies for neighborhoods.
+            </p>
+            <p>
+              Below is a map of average response times over time per priority per beat. You can select which year and priority to view, and you can hover over the different beats to see their names and which neighborhood they can be associated with (labeled as “Most Prominent Neighborhood”). Note that the scale of the legend changes when you switch between years and priorities.
+            </p>
+            <div class="graph my-4">
+              <div id="part1MapYearSelect"></div>
+              <div id="part1MapPriorSelect" class="mb-4"></div>
+              <div id="part1Map"></div>
+            </div>
+            <p>
+              <strong>Source(s):</strong> <a class="article-link" href="https://data.seattle.gov/Public-Safety/Call-Data/33kz-ixgy" target="_blank">SPD 911 Call Data</a>, <a class="article-link" href="https://www.seattle.gov/police/information-and-data/data/tweets-by-beat" target="_blank">SPD Tweets by Beat</a>
+            </p>
+            <p>
+              Once again, not all beats are equally affected by this trend. Some beats have consistently experienced the worst response times throughout this entire time period from 2010-2022, some only join the set of beats with the worst response times in a certain year range, and so on. We'll break these differences down later in the article.
+            </p>
+            <p>
+              Our overall inquiry can be broken down into three sub-questions:
+            </p>
+            <ul>
+              <li>What general/citywide influences may affect the increase in SPD response times?</li>
+              <li>What area/neighborhood-specific influences may affect the increase in SPD response times?</li>
+              <li>What do these visualizations leave out of the story?</li>
+            </ul>
+            <p>
+              With that, let's start with the citywide analysis.
+            </p>
+          </div>
+        </div>
+
+        <div id="part-2" class="row">
+          <div class="col-12">
+            <h2 class="pt-3">Part 2: Citywide Influences</h2>
+            <hr />
+
+            <p>
+              The below graph allows you to select different citywide influences to compare with average SPD police response times. Response times are represented by the blue line while the selected citywide factor to compare is represented by the orange line.
+            </p>
+            <div class="graph my-4">
+              <div id="part2RespCityFactorSelect" class="mb-3"></div>
+              <div id="part2RespCityInfluences"></div>
+            </div>
+            <p>
+              <strong>Source(s):</strong> <a class="article-link" href="https://data.seattle.gov/Public-Safety/Call-Data/33kz-ixgy" target="_blank">SPD 911 Call Data</a>, <a class="article-link" href="https://openbudget.seattle.gov/#!/year/2023/operating/0/service" target="_blank">Seattle Open Budget</a>, <a class="article-link" href="https://data.seattle.gov/Public-Safety/SPD-Crime-Data-2008-Present/tazs-3rd5" target="_blank">SPD Crime Data: 2008-Present</a>, <a class="article-link" href="https://www.waspc.org/cjis-statistics---reports" target="_blank">Washington Association of Sheriffs and Police Chiefs: 1980-2022 Full-Time Law Enforcement Employees</a>, <a  class="article-link" href="https://www.seattle.gov/transportation/document-library/reports-and-studies" target="_blank">Seattle Department of Transportation Traffic Reports</a>, <a  class="article-link" href="https://www.seattle.gov/police/information-and-data/data/tweets-by-beat" target="_blank">SPD Tweets by Beat</a>
+            </p>
+            <p>
+              Police budget and the number of Seattle police officers are the only influences that seem to have a noticeable correlation with average SPD response time - that correlation being negative. However, it's important to note that our budget data doesn't cover many years, and the number of SPD officers really only negatively correlates with response times in 2021 and 2022.
+            </p>
+          </div>
+        </div>
+
+        <div id="part-3" class="row">
+          <div class="col-12">
+            <h2 class="pt-3">Part 3: Beat-Specific Influences</h2>
+            <hr />
+
+            <p>
+              Before looking at beats (subsections of precincts) individually, we should account for their varying populations and sizes. Below is a graph comparing the population density (measured in thousands of people per square mile) of each beat with their average SPD response times over time. Change years and hover over data points to view information about specific beats.
+            </p>
+            <div class="graph my-4">
+              <div id="part3DensityYearSelect" class="mb-3"></div>
+              <div id="part3Density"></div>
+            </div>
+            <p>
+              <strong>Source(s):</strong> <a class="article-link" href="https://data.seattle.gov/Public-Safety/Call-Data/33kz-ixgy" target="_blank">SPD 911 Call Data</a>, <a class="article-link" href="https://data-seattlecitygis.opendata.arcgis.com/datasets/SeattleCityGIS::census-tract-top-50-american-community-survey-data/about" target="_blank">Census Tract Top 50 American Community Survey Data</a>, <a class="article-link" href="https://www.seattle.gov/police/information-and-data/data/tweets-by-beat" target="_blank">SPD Tweets by Beat</a>
+            </p>
+            <p>
+              It appears that population density has no effect on average police response time, since beats with low population density have different levels of average response time no matter the year
+            </p>
+          </div>
+
+          <div class="col-12">
+            <p>
+              Earlier in the investigation, we pointed out how some beats show distinctly different trends in average response time over time. The below graph attempts to quantify these differences by comparing how much each beat's average response time compares to their 2010 average response time. Four-year intervals are used to show overall trends. Once again, you can change years and hover over beats to see more specific information about them.
+            </p>
+            <div class="graph my-4">
+              <div id="part3RespDiffYearSelect" class="mb-3"></div>
+              <div id="part3RespDiffBar"></div>
+            </div>
+            <p>
+              <strong>Source(s):</strong> <a class="article-link" href="https://data.seattle.gov/Public-Safety/Call-Data/33kz-ixgy" target="_blank">SPD 911 Call Data</a>, <a class="article-link" href="https://www.seattle.gov/police/information-and-data/data/tweets-by-beat" target="_blank">SPD Tweets by Beat</a>
+            </p>
+            <p>
+              Examining the beats that had the highest and lowest differences from their 2010 average response times, we found that:
+            </p>
+            <ul>
+              <li>
+                B1, B2 and B3 (Ballard South, Fremont, and Wallingford) remained among the beats with the highest differences from their 2010 average response times.
+              </li>
+              <li>
+                U1 and D3 (Roosevelt/Ravenna and SLU/Cascade) only rose to have some of the highest differences from their 2010 average response times in 2022.
+              </li>
+              <li>
+                M3 (Downtown Commercial Area) remained among the beats with the lowest differences from their 2010 average response times.
+              </li>
+              <li>
+                W3 and M1 (Fauntleroy SW and Downtown Commercial Area) only sunk to have some of the lowest differences from their 2010 average response times in 2022.
+              </li>
+              <li>
+                E2 (Capitol Hill) was among the beats with the lowest differences from their 2010 average response times in 2014 and 2018, but by 2022 was closer to the middle.
+              </li>
+            </ul>
+          </div>
+
+          <div class="col-12">
+            <p>
+              Recently, police across the U.S. have increasingly been called out for excessive use of force and unequal treatment of people based on race. A mid-2021 report from the Center for Policing Equity found this unequal treatment in multiple different facets of the SPD. For example, <a class="article-link" href="https://komonews.com/news/local/report-finds-racial-disparities-in-stops-arrests-use-of-force-by-seattle-police-officers" target="_blank">“black people were seven times more likely to be subjected to force by a police officer than a white person.”</a> We wanted to see if bias based on race and/or socioeconomic status had any effect on police response times, along with crime rate, which we thought might also be an important factor to consider.
+            </p>
+            <p>
+              The below heatmap compares demographic data (and crime rate) for each of the beats of interest listed above, compared with their average SPD response times over time. Change years and hover over beats to see more specific information about them.
+            <div class="graph my-4">
+              <div id="part3beatAspectSelect" class="mb-3"></div>
+              <div id="part3DemoHeatMap"></div>
+            </div>
+            <p>
+              <strong>Source(s):</strong> <a class="article-link" href="https://data.seattle.gov/Public-Safety/Call-Data/33kz-ixgy" target="_blank">SPD 911 Call Data</a>, <a class="article-link" href="https://data-seattlecitygis.opendata.arcgis.com/datasets/SeattleCityGIS::census-tract-top-50-american-community-survey-data/about" target="_blank">Census Tract Top 50 American Community Survey Data</a>, <a class="article-link" href="https://data.seattle.gov/Public-Safety/SPD-Crime-Data-2008-Present/tazs-3rd5" target="_blank">SPD Crime Data: 2008-Present</a>
+            </p>
+            <p>
+              There seems to be no real relationship between any of the demographic data and average response times. But response time is just one measurement of police performance; we're not claiming that call responses are completely free of bias nor independent of crime rate entirely.
+            </p>
+          </div>
+
+          <div class="col-12">
+            <p>
+              One final beat-specific attribute we can look at is the predominant crime categories of each beat in different years, shown below:
+            </p>
+            <div class="graph table-responsive my-4">
+              <table id="part3CrimeTable" class="table table-bordered">
+                <thead class="table-dark">
+                  <tr>
+                    <th scope="col-12">Beat</th>
+                    <th scope="col-12">Predominant Crime Types in 2010 (with Counts)</th>
+                    <th scope="col-12">Predominant Crime Types in 2015 (with Counts)</th>
+                    <th scope="col-12">Predominant Crime Types in 2020 (with Counts)</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <!-- Table rows dynamically inserted into DOM from JSON -->
+                </tbody>
+              </table>
+            </div>
+            <p>
+              <strong>Source(s):</strong> <a class="article-link" href="https://data.seattle.gov/Public-Safety/Call-Data/33kz-ixgy" target="_blank">SPD 911 Call Data</a>, <a class="article-link" href="https://data.seattle.gov/Public-Safety/SPD-Crime-Data-2008-Present/tazs-3rd5" target="_blank">SPD Crime Data: 2008-Present</a>, <a class="article-link" href="https://www.seattle.gov/police/information-and-data/data/tweets-by-beat" target="_blank">SPD Tweets by Beat</a>
+            </p>
+            <p>
+              The clearest pattern we find is that most of these beats have disturbances, reports of suspicious people, noise, and other low priority calls as their predominant call types. However, one beat sticks out, that being M3, which has “Unknown” as one of its predominant call types. As mentioned earlier, “Unknown” calls are almost never below Priority 1, and M3 is among the beats who deviated the least from its 2010 average response time. This could mean that a beat's average response time is influenced simply by the severity of the crimes prominently committed in that beat. The influence of this factor is questionable, since most calls in all beats are low priority but widely vary in their differences from their 2010 average response times. This finding importantly challenges the previously mentioned idea that police response times can be used as a measure of safety, as M3 seems to have lower response times in part because it had more calls that require “immediate” response, i.e. more severe and dangerous events.
+            </p>
+          </div>
+
+        </div>
+
+        <div id="part-4" class="row">
+          <div class="col-12">
+            <h2 class="pt-3">Part 4: What Did We Miss?</h2>
+            <hr />
+
+            <p>
+              There are three questions that arose from our above analysis that weren't answered by our visualizations. Below, we've tried to answer each of them and provide links for those interested in a deeper exploration:
+            </p>
+            <div class="accordion pt-2 pb-4" id="part4-accordion">
+              <div class="accordion-item">
+                <h3 class="accordion-header">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#part4-accordion-q1" aria-expanded="false" aria-controls="part4-accordion-q1">
+                    Why did response times get markedly worse in 2015, 2018, and 2021?
+                  </button>
+                </h3>
+                <div id="part4-accordion-q1" class="accordion-collapse collapse" data-bs-parent="#part4-accordion">
+                  <div class="accordion-body">
+                    <ul>
+                      <li>
+                        <p>
+                          Unfortunately, we weren't able to find any answers to this question. This was due in part to a large amount of articles on police response times being released in the past couple years, drowning out any sources from 2015 or 2018. However, the spike in 2021 may be due to the (at the time) recent decrease in SPD employment:
+                        </p>
+                        <a class="article-link" href="https://www.kiro7.com/news/local/police-response-times-rise-seattle/OF3RBHTJPVDLVJSKNVZKENJZEY/" target="_blank">Police response times rise in Seattle - Kiro 7 News</a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <div class="accordion-item">
+                <h3 class="accordion-header">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#part4-accordion-q2" aria-expanded="false" aria-controls="part4-accordion-q2">
+                    Why have the average response times of Priority 2, 3, and 4 calls greatly increased compared to Priority 1 calls?
+                  </button>
+                </h3>
+                <div id="part4-accordion-q2" class="accordion-collapse collapse" data-bs-parent="#part4-accordion">
+                  <div class="accordion-body">
+                    <ul>
+                      <li>
+                        <p>
+                          There were 223 days in 2021 when the SPD issued an alert to not respond to lower priority calls for a period of the day due to high call volume:
+                        </p>
+                        <a class="article-link" href="https://mynorthwest.com/3526626/some-calls-go-unanswered-seattle-police-change-call-priority-protocol/" target="_blank">Some calls go unanswered as Seattle Police change priority protocol - MyNorthwest</a>
+                      </li>
+                      <li>
+                        <p>
+                          “SPD typically dispatches officers to lower priority calls, but now they are rarely sent to these calls for services because of the staffing crisis”:
+                        </p>
+                        <a class="article-link" href="https://www.king5.com/article/news/local/seattle/mayor-bruce-harrell-new-seattle-police-recruitment-plan-staffing-reaches-30-year-low/281-e98429ee-fc88-47f6-8890-b961393e2047" target="_blank">New recruiting plan unveiled as Seattle Police Department reports 30-year low in officers - King 5 News</a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <div class="accordion-item">
+                <h3 class="accordion-header">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#part4-accordion-q3" aria-expanded="false" aria-controls="part4-accordion-q3">
+                    To what extent could police budget cuts and the number of SPD officers actually be affecting response times?
+                  </button>
+                </h3>
+                <div id="part4-accordion-q3" class="accordion-collapse collapse" data-bs-parent="#part4-accordion">
+                  <div class="accordion-body">
+                    <ul>
+                      <li>
+                        <p>
+                          Police budget and SPD employment aren't mutually exclusive. Some officers who've left in recent years cite budget uncertainty as a reason for leaving the force, or battles with the City Council over said budget:
+                        </p>
+                        <a class="article-link" href="https://www.king5.com/article/news/local/seattle/spd-warns-of-staffing-crisis-after-66-more-officers-leave/281-040a65b1-3165-4f24-8652-a5d10860aac7" target="_blank">Seattle police warn of 'staffing crisis' after 66 more officers leave - King 5 News</a>
+                        <a class="article-link" href="https://www.kiro7.com/news/local/i-refuse-work-this-socialist-city-council-resigning-spd-cops-cite-low-morale-safety-city-leaders-reasons-leaving/6DLBHKQLK5EYTMQAV54EI66YSY/" target="blank">'I refuse to work for this socialist City Council' Resigning SPD cops cite low morale, safety and city leaders as reasons for leaving - Kiro 7 News</a>
+                      </li>
+                      <li>
+                        <p>
+                          Specialty units such as the sexual assault unit have been somewhat disbanded due to employee shortages:
+                        </p>
+                        <a class="article-link" href="https://news.yahoo.com/seattle-police-changing-prioritizing-way-003008802.html" target="_blank">How Seattle police are changing and prioritizing the way they handle your 911 calls - Kiro 7 News</a>
+                      </li>
+                      <li>
+                        <p>
+                          SPD's troubles with recruiting is its own can of worms:
+                        </p>
+                        <a class="article-link" href="https://www.king5.com/article/news/local/seattle/mayor-bruce-harrell-new-seattle-police-recruitment-plan-staffing-reaches-30-year-low/281-e98429ee-fc88-47f6-8890-b961393e2047" target="_blank">New recruiting plan unveiled as Seattle Police Department reports 30-year low in officers - King 5 News</a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div id="conclusion" class="row">
+          <div class="col-12">
+            <h2 id="conclusion-heading" class="pt-3">Conclusion</h2>
+            <hr />
+            <img id="police-office" alt="a police dispatcher office" src="img/police-dispatch-office.jpg" />
+            <p>
+              <em class="mb-caption">Police dispatchers at work.</em>
+            </p>
+            <p>
+              We hope our investigation helps you understand the issue of SPD's increasing response times, its potential causes, and most importantly, the multifaceted nature of this issue. No one visualization or linked article should be seen as a definitive answer for why this trend is occurring. Each is its own component that helps provide a different perspective or rule out an idea, and even then, we don't claim that any of our findings are certain. Thank you for reading!
+            </p>
+          </div>
+        </div>
+
+        <div id="sources" class="row">
+          <div class="col-12">
+            <h2 class="pt-3">Attributions</h2>
+            <hr />
+            <h3>Datasets</h3>
+            <ul>
+              <li>
+                <a href="https://data.seattle.gov/Public-Safety/Call-Data/33kz-ixgy" target="_blank">SPD 911 Call Data</a>
+              </li>
+              <li>
+                <a href="https://openbudget.seattle.gov/#!/year/2023/operating/0/service" target="_blank">Seattle Open Budget</a>
+              </li>
+              <li>
+                <a href="https://data.seattle.gov/Public-Safety/SPD-Crime-Data-2008-Present/tazs-3rd5" target="_blank">SPD Crime Data: 2008-Present</a>
+              </li>
+              <li>
+                <a href="https://data-seattlecitygis.opendata.arcgis.com/datasets/SeattleCityGIS::census-tract-top-50-american-community-survey-data/about" target="_blank">Census Tract Top 50 American Community Survey Data</a>
+              </li>
+              <li>
+                <a href="https://www.seattle.gov/transportation/document-library/reports-and-studies" target="_blank">Seattle Department of Transportation Traffic Reports</a>
+              </li>
+              <li>
+                <a href="https://www.waspc.org/cjis-statistics---reports" target="_blank">Washington Association of Sheriffs and Police Chiefs: 1980-2022 Full-Time Law Enforcement Employees</a>
+              </li>
+            </ul>
+            <h3>References</h3>
+            <ul>
+              <li>
+                <a href="https://www.seattle.gov/police/information-and-data/data/computer-aided-dispatch-dashboard" target="_blank">SPD - Computer-Aided Dispatch Dashboard</a>
+              </li>
+              <li>
+                <a href="https://www.seattle.gov/police/information-and-data/data/tweets-by-beat" target="_blank">SPD Tweets by Beat</a>
+              </li>
+              <li>
+                <a href="https://www.dailyuw.com/news/businesses-on-the-ave-raise-serious-concerns-over-slow-police-response-times/article_48d54374-88f2-11ee-8518-87ddda24832d.html?utm_source=The+Daily+of+the+University+of+Washington&utm_campaign=e21937bfed-EMAIL_CAMPAIGN_2021_10_21_03_17_COPY_01&utm_medium=email&utm_term=0_88803f53f6-e21937bfed-405926692" target="_blank">Businesses on the Ave raise serious concerns over slow police response times - The Daily</a>
+              </li>
+              <li>
+                <a href="https://komonews.com/resources/media2/16x9/full/1015/center/80/14e68656-53b7-4895-90bd-6e6593088118-large16x9_spd4.JPG" target="_blank">Seattle PD cruiser image</a>
+              </li>
+              <li>
+                <a href="https://police.escondido.org/Data/Sites/4/media/images/Photos/Dispatch1.JPG" target="_blank">An image of a police dispatch office</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div id="body-sidenav" class="col-lg-3">
+        <div class="sidenav">
+          <div class="sidenav-header px-3 pt-3 pb-2">
+            <h2>Quick Navigation</h2>
+          </div>
+          <div class="sidenav-links px-3 pt-3 pb-2">
+            <ul>
+              <li><a href="#part-1">Part 1: The Growing Issue</a></li>
+              <li><a href="#part-2">Part 2: Citywide Influences</a></li>
+              <li><a href="#part-3">Part 3: Beat-Specific Influences</a></li>
+              <li><a href="#part-4">Part 4: What Did We Miss?</a></li>
+              <li><a href="#conclusion-heading">Conclusion</a></li>
+              <li><a href="#sources">Attributions</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container-fluid footer text-content py-2">
+    <footer>
+      <p>
+        &copy; TJFPolice
+        <br />
+        <a href="https://observablehq.com/d/11c4b6df0988a406">Observable Notebook</a>
+        <br />
+        <a href="https://gitlab.cs.washington.edu/cse442/23au/final-project/TJFPolice">Repository</a>
+        <br>
+        <a href="https://courses.cs.washington.edu/courses/cse442/23au/">CSE 442 Data Visualization</a>
+        <br />
+        <a href="https://www.washington.edu">University of Washington</a>
+      </p>
+    </footer>
+  </div>
+
+  <!-- <p>Credit: <a href="https://observablehq.com/d/11c4b6df0988a406@1369">Basic FP Graphs by Matthew Jack&#039;s Workspace</a></p> -->
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+  <script type="module">
+    import {Runtime, Inspector} from "https://cdn.jsdelivr.net/npm/@observablehq/runtime@5/dist/runtime.js";
+    import define from "https://api.observablehq.com/d/11c4b6df0988a406@1377.js?v=4";
+        
+    new Runtime().module(define, name => {
+        if (name === "part1AvgBar") return new Inspector(document.querySelector("#part1AvgBar"));
+        if (name === "part1MultiBar") return new Inspector(document.querySelector("#part1MultiBar"));
+        if (name === "viewof yearsmap") return new Inspector(document.querySelector("#part1MapYearSelect"));
+        if (name === "viewof priority") return new Inspector(document.querySelector("#part1MapPriorSelect"));
+        if (name === "map") return new Inspector(document.querySelector("#part1Map"));
+        if (name === "viewof respCityFactor") return new Inspector(document.querySelector("#part2RespCityFactorSelect"));
+        if (name === "respCityInfluences") return new Inspector(document.querySelector("#part2RespCityInfluences"));
+        if (name === "viewof group3") return new Inspector(document.querySelector("#part3DensityYearSelect"));
+        if (name === "popDensity") return new Inspector(document.querySelector("#part3Density"));
+        if (name === "viewof respDiffYear") return new Inspector(document.querySelector("#part3RespDiffYearSelect"));
+        if (name === "respDiffBar") return new Inspector(document.querySelector("#part3RespDiffBar"));
+        if (name === "viewof beatAspects") return new Inspector(document.querySelector("#part3beatAspectSelect"));
+        if (name === "demoHeatMap") return new Inspector(document.querySelector("#part3DemoHeatMap"));
+    });
+  </script>
+  <script type="module" src="main.js" crossorigin="use-credentials"></script>
+</body>
+
+</html>
